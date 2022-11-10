@@ -13,19 +13,18 @@ float_to_top = true
 skip_glob = ".venv"
 
 [tool.poetry]
-name = "<project-name>"
+name = "flask-codemods"
 version = "0.1.0"
 description = "<project-description>"
-repository = "https://github.com/expobrain/<project-name>"
+repository = "https://github.com/expobrain/flask-codemods"
 authors = ["Daniele Esposti <daniele.esposti@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-# For libs
-# packages = [{ include = "<project-name>", from = "lib" }]
-packages = [{ include = "<project-name>" }]
+packages = [{ include = "flask_codemods" }]
 
 [tool.poetry.dependencies]
 python = "^3.7,<3.12"
+libcst = "^0.4.8"
 
 [tool.poetry.group.dev.dependencies]
 autoflake = "^1.4"
@@ -58,10 +57,6 @@ disallow_untyped_defs = true
 no_implicit_optional = true
 warn_redundant_casts = true
 warn_return_any = true
-
-# [[tool.mypy.overrides]]
-# module = "google.auth.credentials"
-# ignore_missing_imports = true
 
 [tool.pytest.ini_options]
 timeout = 10

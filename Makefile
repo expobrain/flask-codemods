@@ -12,12 +12,12 @@ fmt:
 		--remove-all-unused-imports \
 		--ignore-init-module-imports \
 		-r \
-		<project-name> tests
+		codemods tests
 	isort --profile black .
 	black .
 
 bandit:
-	bandit -q -r <project-name>
+	bandit -q -r codemods
 	bandit -q -lll -r tests
 
 check: bandit
@@ -32,16 +32,16 @@ check: bandit
 		--ignore-init-module-imports \
 		-r \
 		-c \
-		<project-name> tests
+		codemods tests
 	isort --profile black -c .
 	black --check .
 
 lint: bandit
-	mypy <project-name>
+	mypy codemods
 	flake8 .
 
 test:
-	pytest -x --cov=core --cov=<project-name> --cov-fail-under=90
+	pytest -x --cov=core --cov=codemods --cov-fail-under=90
 
 install:
 	poetry install --sync
